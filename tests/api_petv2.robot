@@ -66,7 +66,7 @@ Get - Pet By Stored ID
     Should Be Equal As Strings    ${json_response['name']}    doggie
     Should Be Equal As Numbers    ${json_response['id']}      ${PET_ID}
 
-Update - Pet By Stored ID
+Put - Pet By Stored ID
     [Tags]    PET    UPDATE
     [Setup]    Create Petstore Session
 
@@ -98,4 +98,4 @@ Delete - Pet And Verify Deletion
     Should Be Equal As Numbers    ${response.status_code}    200
 
     ${verify_response}=    GET On Session    petstore    /pet/${PET_ID}    expected_status=404
-    Log To Console    Pet ${PET_ID} has been deleted and verified.
+    Log To Console    Pet ${PET_ID} has been deleted and verified

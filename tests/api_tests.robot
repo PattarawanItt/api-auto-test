@@ -15,8 +15,8 @@ Create Global Reqres Session
     Create Session    reqres    ${BASE_URL}    headers=${headers}
 
 *** Test Cases ***
-GET SINGLE USER Should Match Schema
-    [Tags]    GET
+GET - SINGLE USER Should Match Schema
+    [Tags]    GET    POSITIVE
     Create Global Reqres Session
     ${response}=    Get On Session    reqres    /api/users/2
     Should Be Equal As Numbers    ${response.status_code}    200
@@ -30,7 +30,7 @@ GET SINGLE USER Should Match Schema
         Dictionary Should Contain Key    ${data_dict}    ${key}
     END
 
-GET Non-Existent User Should Return 404
+GET - Non-Existent User Should Return 404
     [Tags]    GET    NEGATIVE
     Create Global Reqres Session
     # ทดสอบดึงข้อมูล User ID ที่ไม่มีอยู่จริง (เช่น 999)
